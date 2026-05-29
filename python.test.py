@@ -1,6 +1,6 @@
 #Question number 1.1 :
 
-amount = float(input("Enter the total Bill Amount in dollars : ₹"))
+amount = float(input("Enter the total Bill Amount in rupees : ₹"))
 participants = int(input("Enter total number of people sharing the bill :"))
 surcharge = amount * 0.018
 rounded_charge = round(surcharge, 2)
@@ -83,16 +83,19 @@ else:
 print("NOTE :\n k or K = kilograms, l or L = pounds")
 units = input("Enter units of the weight needed to be converted :")
 value_input = input("Enter the weight value :")
-value = float(value_input)
-if units == 'k' or units == 'K':
-    pounds = value * 2.204622
-    print(f" Result :\n {value_input} kg = {pounds} lbs")
-elif units == 'l' or units == 'L':
-    kg = value /  2.204622
-    print(f"Result :\n {value_input} lbs = {kg} kg")
-else:
+try:
+    value = float(value_input)
+    if units == 'k' or units == 'K':
+        pounds = value * 2.204622
+        print(f" Result :\n {value_input} kg = {pounds} lbs")
+    elif units == 'l' or units == 'L':
+        kg = value /  2.204622
+        print(f"Result :\n {value_input} lbs = {kg} kg")
+    else:
+        print("Type Mismatch: Invalid unit signature code mapped to data stream.")
+except:
     print("Type Mismatch: Invalid unit signature code mapped to data stream.")
-
+    
 #Question number 3.2 :
 
 print("NOTE :\n C or c = Celsius, F or f = Fahrenheit,K or k = Kelvins")
@@ -130,4 +133,5 @@ elif source_units == 'K' or source_units == 'k':
         fahrenheit = (temperature - 273.15)*9/5 + 32
         print(f" Result :\n {temperature} K = {fahrenheit}")
 else:
+    print("SYS_ERR: Invalid Scale Permutation Vector.")
     print("SYS_ERR: Invalid Scale Permutation Vector.")
